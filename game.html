@@ -1,0 +1,216 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Math Quiz</title>
+    </head>
+    <body>
+        <h2> Math Quiz Game </h2>
+        <label for = "level">Select Level:</label>
+        <select id = "level" onchange = "generateQuestion()">
+            <option value = "easy"></option>
+            <option value = "medium"></option>
+            <option value = "hard"></option>
+        </select>
+
+        <div id = "question" style = "margin-top: 10px;"></div>
+        <input type = "number" id = "answerInput" placeholder = "Your answer" />
+        <button onclick = "checkAnswer()">Submit</button>
+        <p id = "feedback"></p>
+        <script>
+            let num1, num2, operator, correctAnswer;
+            function generateQuestion() {
+                const level = document.getElementById("level").value;
+                let operators, max;
+                if (level === "easy") {
+                    operators = ['+'];
+                    max = 10;
+                }
+                else if (level === "medium") {
+                    operators = ['+', '-'];
+                    max = 50;
+                }
+                else if (level === 'hard') {
+                    operators = ['+', '-', '*'];
+                    max = 100;
+                }
+
+                num1 = Math.floor(Math.random() * max) + 1;
+                num2 = Math.floor(Math.random() * max) + 1;
+                operator = operators[Math.floor(Math.random() * operators.length)];
+            switch (operator) {
+                case '+': correctAnswer = num1 + num2; break;
+                case '-': correctAnswer = num1 - num2; break;
+                case '*': correctAnswer = num1 * num2; break;
+            }
+            document.getElementById("question").textContent = 
+            `What is ${num1} ${operator} ${num2}?`;
+            document.getElementById("feedback").textContent = '';
+            document.getElementById("answerInput").value = '';
+        }
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById("answerInput").value);
+            const feedback = document.getElementById("feedback");
+
+            if (userAnswer === correctAnswer) {
+                feedback.textContent = "✅ Correct!";
+                feedback.style.color = "green";
+            }
+            else {
+                feedback.textContent = `❌ Wrong! Correct: ${correctAnswer}`;
+                feedback.style.color = "red";
+            }
+            setTimeout(generateQuestion, 1500);
+        }
+        generateQuestion();
+    </script>
+    </body>
+    </html> -->
+
+
+    <!DOCTYPE html>
+    <html lang = "en">
+        <head>
+            <meta charset = "UTF-8" />
+            <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+            <title>TIC TAC TOE</title>
+            <style>
+                * {
+                    box-sizing : border-box;
+                }
+                body {
+                    font-family :'Times New Roman', Times, serif;
+                    background-color : #f0f0f0;
+                    display : flex;
+                    justify-content : center;
+                    align-items : center;
+                    height : 100vh;
+                    padding : 20px;
+                }
+                .game-container {
+                    text-align : center;
+                }
+                h1 { 
+                    margin-bottom : 20px;
+                    font-size : 2rem;
+                }
+                .board {
+                    display : grid;
+                    grid-template-columns : repeat(3, 100px);
+                    grid-template-rows : repeat(3, 100px);
+                    gap : 10px;
+                    justify-content : center;
+                }
+                .cell {
+                    background-color : #fff;
+                    border : 2px solid #333;
+                    font-size : 2rem;
+                    font-weight : bold;
+                    cursor : pointer;
+                    display : flex;
+                    align-items : center;
+                    justify-content : center;
+                }
+                .status {
+                     margin-top : 20px;
+                     font-size : 1.2rem;
+                     font-weight : bold;
+                }
+                .reset-btn {
+                    margin-top : 15px;
+                    padding : 10px 20px;
+                    font-size : 1rem;
+                    background-color : #007bff;
+                    color : white;
+                    border : none;
+                    border-radius : 6px;
+                    cursor : pointer;
+                }
+                @media (max-width: 480px) {
+                    .board {
+                        grid-template-columns : repeat(3, 80px);
+                        grid-template-rows : repeat(3, 80px);
+                        gap : 8px;
+                    }
+                    .cell {
+                        font-size : 1.5rem;
+                    }
+                    h1 { 
+                        font-size: 1.5rem;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class = "game-container">
+                <h1>TIC TAC TOE</h1>
+                <div class = "board" id = "board"></div>
+                <div class = "status" id = "statusText">Player X's turn</div>
+                <button class = "reset-btn" onclick = "resetGame()">Reset</button>
+            </div>
+            <script>
+            const board = document.getElementById('board');
+            const statusText = document.getElementById('statusText');
+            let currentPlayer = 'X';
+            let gameActive = true;
+            let cells = ["", "", "", "", "", "", "", "", ""];
+
+            const winConditions = [
+                 [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                 [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                 [0, 4, 8], [2, 4, 6]
+            ];
+
+            function createBoard() {
+                board.innerHTML = "";
+                cells.forEach((cell, index) => {
+                    const cellDiv = document.createElement("div");
+                    cellDiv.classList.add("cell");
+                    cellDiv.setAttribute("data-index", index);
+                    cellDiv.innerText = cell;
+                    cellDiv.addEventListener("click", handleCellClick);
+                    board.appendChild(cellDiv);
+                });  
+            }
+
+            function handleCellClick(e) {
+                const index = e.target.getAttribute("data-index");
+
+                if (cells[index] !== "" || !gameActive) return;
+
+                cells[index] = currentPlayer;
+                e.target.innerText = currentPlayer;
+
+                if (checkWinner()) {
+                    statusText.innerText = ` Player ${currentPlayer} Wins!`;
+                    gameActive = false;
+                }
+                else if (!cells.includes("")) {
+                    statusText.innerText = "It's a Draw!";
+                    gameActive = false;
+                }
+                else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                    statusText.innerText = `Player ${currentPlayer}'s turn`;
+                }
+            }
+                function checkWinner() {
+                return winConditions.some(condition => {
+                const [a, b, c] = condition;
+                return cells[a] !== "" && cells[a] === cells[b] && cells[b] === cells[c]; {
+                    return condition;
+                }
+                });
+                }
+
+                function resetGame() {
+                cells = ["", "", "", "", "", "", "", "", ""];
+                currentPlayer = 'X';
+                gameActive = true;
+                statusText.innerText = "Player X's turn";
+                createBoard();
+                }
+
+                createBoard();
+            </script>
+        </body>
+    </html>

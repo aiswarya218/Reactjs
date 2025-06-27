@@ -1,0 +1,99 @@
+/* body { 
+    margin : 0;
+    padding : 10px;
+    font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+input {
+    width : 100%;
+    padding-left : 10px;
+    padding-right : 10px;
+    box-sizing : border-box;
+    border : 1px solid #5f9341;
+    margin-bottom : 4px;
+}
+
+button {
+    background : #5f9341;
+    color : white;
+    padding : 10px 20px;
+    border : none;
+    font-weight : bold;
+}
+
+#box {
+    cursor : pointer;
+    background : floralwhite;
+    padding : 40px;
+    width : 200px;
+    text-align : center;
+    margin : 20px auto;
+    color: bold;
+    font-weight : bold;
+} */
+
+
+/* body  {
+    font-family :Georgia, 'Times New Roman', Times, serif;
+    background: whitesmoke;
+    text-align: center;
+    color: #464646;
+}
+
+h1 {
+    font-weight: 200;
+    letter-spacing : 2px;
+}
+
+#container {
+    width : 100%;
+} */
+
+/* html, body {
+    margin : 0;
+    padding : 0;
+    font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#container {
+    cursor : pointer;
+    background-color : aquamarine;
+    padding : 40px;
+    width : 200px;
+    text-align : center;
+    margin : 20px auto;
+    color : white;
+    font-weight : 300;
+} */
+
+
+#container {
+    cursor : pointer;
+    background-color : blueviolet;
+    padding : 40px;
+    width : 200px;
+    text-align : center;
+    margin : 20px auto;
+    color : white;
+    font-weight : 300;
+}
+html, body {
+    margin : 0;
+    padding : 0;
+    font-family : Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style : italic;
+    font-size : 2rem;
+    font-weight : 200;
+    border : none;
+    letter-spacing : 2%;
+    height : 12px;
+    width : 24px;
+    text-align : center;
+    align-items : center;
+    justify-content : center;
+    background-color : lawngreen;
+    color :hotpink;
+    padding-left : 10px;
+    padding-right : 10px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+}
