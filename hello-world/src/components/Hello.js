@@ -18,6 +18,8 @@
 
 
 import React from 'react';
+import App from '../../../quote-generator/src/App';
+import { jsx } from 'react/jsx-runtime';
 
 function Hello() {
   return <h1>Hello World</h1>;
