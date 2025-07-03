@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { jsx } from 'react/jsx-runtime';
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -42,4 +43,3 @@ const closeBtnStyle = {
 };
 
 export default Modal;
-
