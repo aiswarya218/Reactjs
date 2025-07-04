@@ -109,3 +109,55 @@ const styles = {
 };
 
 export default App;
+
+
+// import React, { useEffect, useState } from "react";
+//  function UserList() {
+//   const [users, setUsers] = useState([]);
+
+//   useEffect(() => {
+//     fetch("http://jsonplaceholder.typicode.com/users")
+//       .then((response) => response.json())
+//       .then((data) => setUsers(data))
+//       .catch((error) => console.error("Error fetching users:", error));
+//   }, []);
+
+//   return (
+//     <div>
+//       <h2>User List</h2>
+//       {users.map((user) => (
+//         <p key = {user.id}>{user.name}</p>
+//       ))}
+//     </div>
+//   );
+//  }
+
+//  export default UserList;
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+
+// function PostList() {
+//   const [posts, setPosts] = useState([]);
+
+//   useEffect(() => {
+//     axios
+//     .get("http://jsonplaceholder.typicode/posts")
+//     .then((response) => setPosts(response.data))
+//     .catch((error) => console.error("Error fetching posts:", error));
+//   },[]);
+
+//   return (
+//     <div>
+//       <h2>Post List</h2>
+//       {posts.map((post) => (
+//         <p key = {post.id}>{post.title}</p>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default PostList;
