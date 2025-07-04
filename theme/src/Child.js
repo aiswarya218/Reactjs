@@ -1,5 +1,8 @@
+//context
+
 import React, { useContext } from 'react';
 import ThemeContext from './ThemeContext';
+import { jsx } from 'react/jsx-runtime';
 
 function Child() {
     const { theme, setTheme } = useContext(ThemeContext);
@@ -18,10 +21,4 @@ const toggleTheme = () => {
     );
  }
 
- export default Child;
-
-
- import React, { useContext } from 'react';
- import ThemeContext from './ThemeContext';
-
- 
+export default Child;
