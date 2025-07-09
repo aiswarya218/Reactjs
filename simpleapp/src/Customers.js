@@ -13,12 +13,10 @@ export default class Customers extends Component {
     }
   }
 
-  //function which is called the first time the component loads
+  
   componentDidMount() {
     this.getCustomerData();
   }
-
-  //Function to get the Customer Data from json
   getCustomerData() {
     axios.get('assets/samplejson/customerlist.json').then(response => {
       this.setState({customerList: response})
