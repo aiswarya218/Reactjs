@@ -1,4 +1,5 @@
 import React from 'react';
+import { jsx } from 'react/jsx-runtime';
 
 const Child = React.memo(({ onClick }) => {
     console.log('🔄 Child rendered');
