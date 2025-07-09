@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { jsx } from 'react/jsx-runtime';
+import { LCPThresholds } from 'web-vitals';
 
 function Example() {
      const [data, setData] = useState([]);
@@ -21,4 +22,3 @@ function Example() {
         </div>
      );    
 }
-
