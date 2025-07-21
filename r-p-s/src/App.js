@@ -1,75 +1,40 @@
+import React, { useEffect, useState } from 'react';
 
-import React, { useState } from 'react';
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setloading] = useState(true);
+  const [error, setError] = useState(null);
 
-const choices = ['Rock', 'Paper', 'Scissors'];
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((data) => {
+      setUsers(data);
+      setloading(false);
+    })
 
-function App() {
-  const [userChoice, setUserChoice] = useState('');
-  const [computerChoice, setComputerChoice] = useState('');
-  const [result, setResult] = useState('');
+    .catch((error) => {
+      console.error('Error fetching data:', error);
+      setloading(false);
+    });
+  },[]);
 
-  const playGame = (choice) => {
-    const compChoice = choice[Math.floor(Math.random() * 3)];
-    setUserChoice(choice);
-    setComputerChoice(compChoice);
-    determineWinner(choice, compChoice);
-  };
-
-  const determineWinner = (user, comp) => {
-    if (user === comp) {
-      setResult("It's a draw!");
-    }
-    else if (
-      (user === 'Rock' && comp === 'Scissors') ||
-      (user === 'Paper' && comp === 'Rock') ||
-      (user === 'Scissors' && comp === 'Paper')
-     ) {
-      setResult(' 🎉 You Win!');
-    }
-    else {
-      setResult(' 😢 You Lose!');
-    }
-  };
+  if (loading) {
+    return <p>Loading users...</p>;
+  }
 
   return (
-    <div style = {StyleSheet.container}>
-      <h1>Rock  Paper Scissor</h1>
-      <div>
-        {choices.map((choice) => (
-          <button
-          key = {choice}
-          onClick = {() => playGame(choice)}
-          style = {StyleSheet.choiceButton}
-          >
-            {choice}
-          </button>
+    <div>
+      <h1>User List</h1>
+      <ul>
+        {users.map(user => (
+           <li key = {user.id}>
+            <strong>{user.name}</strong>  ({user.email})
+           </li>
         ))}
-      </div>
-      <div style = {styles.results}>
-      <p>Your Choice: <strong>{userChoice}</strong></p>
-      <p>Choice's Choice: <strong>{computerChoice}</strong></p>
-      <h2>{result}</h2>
-    </div>
+      </ul>
     </div>
   );
-}
-
-const styles = {
-  container: {
-    textAlign: 'center',
-    marginTop: '50px',
-    fontFamily: 'Arial',
-  },
-  choiceButton: {
-    margin: '10px',
-    padding: '10px 20px',
-    fontSize: '18px',
-    borderRadius: '8px',
-    cursor: 'pointer',
-  },
-  results: {
-    marginTop: '30px',
-  },
 };
 
 export default App;
