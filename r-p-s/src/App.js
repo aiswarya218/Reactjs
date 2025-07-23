@@ -12,7 +12,7 @@ const App = () => {
       setUsers(data);
       setloading(false);
     })
-
+    
     .catch((error) => {
       console.error('Error fetching data:', error);
       setloading(false);
