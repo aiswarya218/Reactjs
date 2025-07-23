@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <h1>MY APP</h1>
-      <ErrorBoundary>s
+      <ErrorBoundary>
         <BuggyComponent />
       </ErrorBoundary>
     </div>
@@ -14,4 +14,3 @@ function App() {
 }
 
 export default App;
-
