@@ -115,43 +115,77 @@
 
 
 
-import React, { Component, createContext, useOptimistic } from 'react'
-import axios from 'axios'
-import { getFCP, LCPThresholds } from 'web-vitals'
-import { jsx } from 'react/jsx-runtime'
+// import React, { Component, createContext, useOptimistic } from 'react'
+// import axios from 'axios'
+// import { getFCP, LCPThresholds } from 'web-vitals'
+// import { jsx } from 'react/jsx-runtime'
 
-class PostList extends Component {
-  constructor(props) {
-    super(props)
+// class PostList extends Component {
+//   constructor(props) {
+//     super(props)
 
-    this.state = {
-      posts : []
+//     this.state = {
+//       posts : []
+//     }
+//   }
+
+//   componentDidMount() {
+//     axios.get('https://jsonplaceholder.typicode.com/posts')
+//     .then(response => {
+//       console.log(response)
+//       this.setState({posts: response.data})
+//     })
+//     .catch(error => {
+//       console.log(error)
+//     })
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         Lists of posts
+//         {
+//           posts.length ?
+//           posts.map(post => <div key = {post.id} > {post.title}</div>) :
+//           null
+//         }
+//       </div>
+//     )
+//   }
+// }
+
+//  export default PostList;
+
+
+
+import React, { useState } from "react";
+
+function ProfileEditor() {
+  const [profile, setProfile] = useState({
+    name: "Shivani",
+    address: {
+      city: "Sulthan Bathery",
+      zip: "673592"
     }
-  }
+  });
 
-  componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(response => {
-      console.log(response)
-      this.setState({posts: response.data})
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+  const updateCity = () => {
+    setProfile(prev => ({
+      ...prev,
+      address: {
+        ...prev.address,
+        city: "Wayanad"
+      }
+    }));
+  };
 
-  render() {
-    return (
-      <div>
-        Lists of posts
-        {
-          posts.length ?
-          posts.map(post => <div key = {post.id} > {post.title}</div>) :
-          null
-        }
-      </div>
-    )
-  }
+  return  (
+    <div>
+      <h2>{profile.name}</h2>
+      <p>{profile.address.city}, {profile.address.zip}</p>
+      <button onClick = {updateCity}>Update City</button>
+    </div>
+  );
 }
 
- export default PostList
+export default ProfileEditor;
