@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (DIRECTIONS[e.key] setDirection(e.key);
+      if (DIRECTIONS[e.key]) setDirection(e.key);
     };
     window.addEventListener("keydown", handleKeyDown);
   }, []);
@@ -35,6 +35,44 @@ function App() {
     ];
 
     const newSnake = [newHead, ...snake];
-    if (newHead[0] === food)
-  }
+    if (newHead[0] === food[0] && newHead[1] === food[1]) {
+      setFood(generateFood(newSnake));
+    }
+    else {
+      newSnake.pop();
+    }
+
+    setSnake(newSnake);
+  };
+
+  const generateFood = (snake) => {
+       let newFood;
+       do {
+        newFood = [
+          Math.floor(Math.random() * BOARD_SIZE),
+          Math.floor(Math.random() * BOARD_SIZE),
+        ];
+       } while (snake.some(([x, y]) => x === newFood[0] && y === newFood[1]));
+       return newFood;
+  };
+  const renderCell = (x,y) => {
+    const isSnake = snake.some(([sx, sy]) => sx === x && sy === y);
+    const isFood = food[0] === x && food[1] === y;
+    return (
+      <div
+      key = {`${x}-${y}`}
+      className = {`cell ${isSnake ? "snake" : ""} ${isFood ? "food" : ""}`}
+    ></div>
+    );
+  };
+
+  return (
+    <div className = "board">
+      {[...Array(BOARD_SIZE)].map((_, row) =>
+      [...Array(BOARD_SIZE)].map((_, col) => renderCell(row, col))
+      )}
+    </div>
+  );
 }
+
+export default App;
