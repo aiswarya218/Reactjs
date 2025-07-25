@@ -7,8 +7,6 @@
 // }
 // greetUser(sayHello);
 
-import { jsx } from "react/jsx-runtime";
-
 
 // function process(callback) {
 //     console.log("Starting process...");
@@ -202,7 +200,6 @@ import { jsx } from "react/jsx-runtime";
 // const cube = number.map(n => n * n * n);
 // console.log(cube);
 
-
 // console.log("Start");
 // setTimeout(function cbT() {
 //     console.log("CB SetTimeout");
@@ -235,4 +232,3 @@ while (endDate < startDate + 10000) {
     endDate = new Date().getTime();
 }
 console.log("While expires");
-
