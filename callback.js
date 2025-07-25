@@ -58,8 +58,6 @@
 //     alert('Button clicked!');
 // });
 
-
-
 // // function x() {
 // //     var a =7;
 // //     function y() {
@@ -70,7 +68,6 @@
 // // var z = x();
 // // console.log(z);
 // // z();
-
 
 // //callback pyramid of doom
 // function step1(callback) {
@@ -100,8 +97,7 @@
 //     });
 // });
 
-
-// //convert to promises
+ //convert to promises
 // function step1() {
 //     return new Promise((resolve) => {
 //         setTimeout(() => {
@@ -142,6 +138,7 @@
 //     console.log("All steps complete");
 // }
 // runSteps();
+
 
 
 // //for loop

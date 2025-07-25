@@ -1,0 +1,51 @@
+body {
+   margin: 0;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   background: #fefefe;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #444;
+}
+
+.cat-card img {
+   max-width: 100%;
+   border-radius: 10px;
+   margin-bottom: 20px;
+}
+
+.fact {
+  font-size: 1.1rem;
+  color: #333;
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+
+button { 
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #e73370;
+}
