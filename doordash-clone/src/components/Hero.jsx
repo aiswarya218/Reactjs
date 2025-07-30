@@ -1,12 +1,12 @@
 import React from "react";
+import "./Hero.css";
 
 function Hero() {
     return (
-        <section className = "hero">
-            <h1>Order food and groceries online from the best restaurants</h1>
-            <input className = "seachinput" type = "text" placeholder = "Enter your delivery address" />
-            <button className = "hero-btn">Find Food</button>
-        </section>
+        <div className = "hero">
+            <h1>Discover the best food & drinks in your city</h1>
+            <input type="text" placeholder="Enter your delivery address" />
+        </div>
     );
 }
 

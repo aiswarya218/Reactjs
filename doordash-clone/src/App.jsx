@@ -1,19 +1,20 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ProductCard from "./components/ProductCard";
-import products from "./data/product";
+import RestaurantCard from "./components/RestaurantCard";
+import Home from "./data/restaurants";
+import restaurants from "./data/restaurants";
 
 function App() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <section className = "product-section">
-        <h2>Trending Near You</h2>
-        <div className = "product-list">
-          {products.map((item, index) => (
-            <ProductCard key = {index} item = {item} />
+      <section className = "restaurant-section">
+        <h2>Popular Restaurants</h2>
+        <div className = "restaurant-list">
+          {restaurants.map((res) => (
+            <RestaurantCard key = {res.id} restaurant = {res} />
           ))}
         </div>
       </section>

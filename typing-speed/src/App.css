@@ -1,38 +1,50 @@
-.App {
+.typing-container {
   text-align: center;
+  padding: 20px;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.progress-bar-wrapper {
+  width: 80%;
+  max-width: 600px;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 1s linear;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.target-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-height: 60px;
+  background-color: #f9f9f9;
 }
 
-.App-link {
-  color: #61dafb;
+.typing-area {
+  font-size: 16px;
+  padding: 10px;
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
 }

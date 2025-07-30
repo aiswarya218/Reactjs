@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./App.css";
 
 const sentences = [
   "The quick brown fox jumps over the lazy dog.",
@@ -25,47 +26,53 @@ function App() {
     if (started && timeLeft > 0) {
       timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     } else if (timeLeft === 0) {
-      finishGame();
-    }
-    return () => clearTimeout(timer);
-  }, [timeLeft, started]);
+      setStarted(false);
+      const correctChars = text.split('').filter((char, idx) => char === targetText[idx]).length;
+      const wordsTyped = correctChars / 5;
+      setWpm(Math.round(wordsTyped * 2));
+  }
+  return () => clearTimeout(timer);
+}, [timeLeft, started, text, targetText]);
 
   const startGame = () => {
     setStarted(true);
     setText("");
     setTimeLeft(30);
     setWpm(null);
+    setTargetText(sentences[Math.floor(Math.random() * sentences.length)]);
     inputRef.current.focus();
   };
 
-  const finishGame = () => {
-    setStarted(false);
-    const wordsTyped = text.trim().split(" ").length;
-    setWpm(wordsTyped * 2); // Game time is 30s, so * 2 for WPM
-  };
-
   const getHighlightedText = () => {
-    const correctPart = targetText.slice(0, text.length);
     return [...targetText].map((char, index) => {
       const typedChar = text[index];
-      let style = { color: "#aaa" }; // untyped = gray
+
+      let className = "untyped";
       if (typedChar != null) {
-        style.color = typedChar === char ? "green" : "red";
+        className = typedChar === char ? "correct" : "incorrect";
       }
       return (
-        <span key={index} style={style}>
+        <span key={index} className = {className}>
           {char}
         </span>
       );
     });
   };
 
+    console.log("started", started);
   return (
-    <div style={styles.container}>
+    <div className = "typing-container">
       <h1>⌨️ Typing Speed Game</h1>
 
-      <div style={styles.target}>
+      <div className = "target-text">
         {getHighlightedText()}
+      </div>
+      
+      <div className = "progress-bar-wrapper">
+        <div
+        className = "progress-bar"
+        style = {{ width: `${((30 - timeLeft) / 30) * 100}%` }}
+      ></div>
       </div>
 
       <textarea
@@ -79,52 +86,17 @@ function App() {
           setText(e.target.value);
         }}
         disabled={!started || timeLeft === 0}
-        style={styles.textarea}
-      />
+        className="typing-area"
+      />  
 
       <h2>Time Left: {timeLeft}s</h2>
       {wpm !== null && <h2>Your WPM: {wpm}</h2>}
 
-      <button onClick={startGame} style={styles.button}>
+      <button onClick={startGame} className = "start-button">
         {started ? "Restart" : "Start Game"}
       </button>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    textAlign: "center",
-    padding: 20,
-    fontFamily: "Arial",
-  },
-  target: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 20,
-    width: "80%",
-    maxWidth: 600,
-    margin: "auto",
-    textAlign: "left",
-    padding: 10,
-    border: "1px solid #ccc",
-    borderRadius: 8,
-    minHeight: 60,
-    backgroundColor: "#f9f9f9",
-    lineHeight: 1.6,
-  },
-  textarea: {
-    fontSize: 16,
-    padding: 10,
-    width: "80%",
-    maxWidth: 600,
-    marginBottom: 20,
-  },
-  button: {
-    padding: "10px 20px",
-    fontSize: 16,
-    marginTop: 10,
-  },
-};
 
 export default App;
