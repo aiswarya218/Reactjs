@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background: #fa3131;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.hero {
+    padding: 60px 20px;
+    background: url("https://source.unsplash.com/1600X500/?food") no-repeat center center;
+    color: white;
+    background-size: cover;
+    text-align: center;
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    margin-top: 20px;
+} 
+
+.hero-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #fa3131;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product-section {
+    padding: 40px 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 6px;
+}
