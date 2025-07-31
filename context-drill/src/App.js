@@ -12,7 +12,7 @@ function App() {
         <Parent />
         </div>
     </UserContext.Provider>
-  );
+  )
 }
 
 export default App;
