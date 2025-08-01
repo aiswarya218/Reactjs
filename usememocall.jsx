@@ -15,7 +15,7 @@ function MemoDemo() {
         for (let i = 0; i < 100000000; i++) {
             result += i % 10;
         }
-        return result;
+        return result; 
     }, [count]);
 
     const handleClick = useCallback(() => {
@@ -25,7 +25,7 @@ function MemoDemo() {
 
     return (
         <div>
-            <h2>useMemo and useCallback</h2>
+            <h2>UseMemo and UseCallback</h2>
             <p>Expensive Value: {expensiveValue}</p>
             <p>Count: {count}</p>
             <button onClick = {() => setCount(count + 1)}>Increment Count</button>
@@ -39,10 +39,3 @@ function MemoDemo() {
 }
 
 export default MemoDemo;
-
-
-
-// const ExpensiveComponent = React.memo(({ onClick }) => {
-//     console.log("Rendering ExpensiveComponent");
-//     return <button onClick = {onClick}>Click Me</button>
-// });

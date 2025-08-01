@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLinkClickHandler } from 'react-router-dom';
 import { jsx } from 'react/jsx-runtime';
+//import { jsx } from 'react/jsx-showtime';
 
 function AllInOneExample() {
     const [count, setCount] = useState(0);
@@ -17,6 +18,7 @@ function AllInOneExample() {
             console.log("Component unmounted");
         };
     }, []);
+
 
     useEffect(() => {
         console.log(`Count updated to: ${count}`);
@@ -39,7 +41,6 @@ function AllInOneExample() {
     return (
         <div>
             <h1>All useeffect</h1>
-
             <h2>Count: {count}</h2>
             <button onClick = {() => setIsTimerActive(!isTimerActive)}>
                 {isTimerActive ? 'Pause Timer' : 'Start Timer'}
@@ -55,4 +56,4 @@ function AllInOneExample() {
     );
 }
 
-export default AllInOneExample; 
+export default AllInOneExample;
