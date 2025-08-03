@@ -182,3 +182,34 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+// import React from 'react';
+
+// function App() {
+//   const name = "Sangeetha";
+
+//   return (
+//     <div>
+//       <h1>Hello, {name} </h1>
+//       <p>This is your first JSX-powered React App!</p>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+/*import React from 'react';
+
+function Welcome({ name }) {
+  return <h2>Welcome, {name}!</h2>;
+}
+
+export default Welcome;*/
