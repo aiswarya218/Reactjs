@@ -6,11 +6,11 @@ function Header() {
       <div className="header-container">
         <div className="logo">
           <a href="#">
-            <img width="75" src="./images/flipkart-plus_8d85f4.png" alt="Flipkart" title="Flipkart" class="W5mR4e"></img>
+            <img width="75" src="./images/flipkart-plus_8d85f4.png" alt="Flipkart" title="Flipkart" className="W5mR4e"></img>
           </a>
-          <a style="font-size: 11px; font-style: italic; margin-top: -1px;">Explore</a>
+          <a style={{ fontSize: '11px', fontStyle: 'italic', marginTop: '-1px' }}>Explore</a>
           <span>Plus</span>
-          <img width="10" src="./images/plus_aef861.png"></img>
+          <img width="10" src="./images/plus_aef861.png" />
         </div>
 
         <div className="search-bar">
@@ -26,7 +26,7 @@ function Header() {
 
         <div className="nav-links">
           <ul>
-            <li><a href="#">Login</a></li>
+            <li><a href="#">Login</a></li> 
             <li><a href="#">Become a Seller</a></li>
             <li><a href="#">More</a></li>
             <li><a href="#">Cart</a></li>
