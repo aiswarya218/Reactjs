@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Filters from "./components/Filters";
-import Products from "./components/Products";
+import ProductListing from "./components/ProductListing";
 import Footer from "./components/Footer";
 import "./style1.css";
 
@@ -14,7 +14,7 @@ function App() {
 
       <div className="main-content">
         <Filters />
-        <Products />
+        <ProductListing />
       </div>
 
       <Footer />
