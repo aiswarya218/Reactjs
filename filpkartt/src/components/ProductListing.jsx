@@ -12,11 +12,28 @@ const styles = {
     margin: "20px auto",
     boxShadow: "0 1px 1px rgba(0,0,0,0.05)",
   },
-  imageSection: { flex: "0 0 200px", marginRight: "20px", textAlign: "center" },
-  imagePlaceholder: { width: "100%", maxWidth: "180px", height: "auto" },
-  checkbox: { marginTop: "10px", fontSize: "14px" },
-  infoSection: { flex: "1", paddingRight: "20px" },
-  priceSection: { flex: "0 0 160px", textAlign: "right" },
+  imageSection: {
+     flex: "0 0 200px",
+      marginRight: "20px",
+       textAlign: "center"
+  }, 
+  imagePlaceholder: {
+     width: "100%", 
+     maxWidth: "180px", 
+     height: "auto" 
+  },
+  checkbox: { 
+    marginTop: "10px", 
+    fontSize: "14px" 
+  },
+  infoSection: { 
+    flex: "1",
+    paddingRight: "20px" 
+  },
+  priceSection: { 
+    flex: "0 0 160px", 
+    textAlign: "right" 
+ },
   title: {
     fontSize: "18px",
     fontWeight: "500",
@@ -24,7 +41,11 @@ const styles = {
     lineHeight: "22px",
     marginBottom: "5px",
   },
-  ratingContainer: { display: "flex", alignItems: "center", marginBottom: "10px" },
+  ratingContainer: { 
+    display: "flex", 
+    alignItems: "center", 
+    marginBottom: "10px" 
+  },
   ratingBadge: {
     backgroundColor: "#388e3c",
     color: "white",
@@ -34,7 +55,10 @@ const styles = {
     marginRight: "8px",
     fontWeight: "600",
   },
-  reviews: { fontSize: "14px", color: "#555" },
+  reviews: { 
+    fontSize: "14px", 
+    color: "#555" 
+  },
   specsList: { listStyle: "disc", paddingLeft: "20px", margin: "0" },
   specItem: { fontSize: "14px", lineHeight: "22px", color: "#333", marginLeft: "-10px" },
   currentPrice: { fontSize: "28px", fontWeight: "600", color: "#212121" },
@@ -45,8 +69,16 @@ const styles = {
     fontSize: "16px",
     marginRight: "10px",
   },
-  discount: { color: "#388e3c", fontSize: "16px", fontWeight: "600" },
-  exchange: { fontSize: "14px", marginTop: "10px", color: "#555" },
+  discount: { 
+    color: "#388e3c", 
+    fontSize: "16px", 
+    fontWeight: "600" 
+  },
+  exchange: { 
+    fontSize: "14px", 
+    marginTop: "10px", 
+    color: "#555" 
+  },
 };
 
 const ProductListing = () => {
